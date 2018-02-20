@@ -95,7 +95,7 @@ HAVE_ADRENO_SOURCE:= false
 OVERRIDE_RS_DRIVER:= libRSDriver_adreno.so
 
 # Extended filesystem support
-TARGET_KERNEL_HAVE_EXFAT := true
+TARGET_EXFAT_DRIVER := exfat
 
 # Filesystem
 BOARD_FLASH_BLOCK_SIZE := 262144 # (BOARD_KERNEL_PAGESIZE * 64)
