@@ -308,6 +308,5 @@ PRODUCT_PACKAGES += \
     libwifi-hal-bcm \
     libwpa_client \
     hostapd \
-    wificond \
     wpa_supplicant \
     wpa_supplicant.conf
