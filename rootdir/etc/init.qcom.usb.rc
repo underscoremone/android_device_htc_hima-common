@@ -31,6 +31,16 @@ on boot
 on charger
     setprop sys.usb.config mass_storage
 
+# ADB
+on property:sys.usb.config=adb
+    write /sys/class/android_usb/android0/enable 0
+    write /sys/class/android_usb/android0/idVendor 0bb4
+    write /sys/class/android_usb/android0/idProduct 0f86
+    write /sys/class/android_usb/android0/functions mtp,adb
+    write /sys/class/android_usb/android0/enable 1
+    start adbd
+    setprop sys.usb.state ${sys.usb.config}
+
 # MTP
 on property:sys.usb.config=mtp
     write /sys/class/android_usb/android0/enable 0
