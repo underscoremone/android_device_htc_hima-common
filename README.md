@@ -1,5 +1,5 @@
-Copyright 2015 - The CyanogenMod Project
-Copyright 2017 - The LineageOS Project
+Copyright 2015-2016 - The CyanogenMod Project
+Copyright 2017-2018 - The LineageOS Project
 
 Device configuration for HTC M9.
 =====================================

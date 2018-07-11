@@ -1,5 +1,6 @@
 #
-# Copyright (C) 2015 The CyanogenMod Project
+# Copyright (C) 2015-2016 The CyanogenMod Project
+# Copyright (C) 2017-2018 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -15,7 +16,7 @@
 #
 
 # Inherit proprietary blobs
-$(call inherit-product-if-exists, vendor/htc/hima-common/hima-common-vendor.mk)
+$(call inherit-product-if-exists, vendor/htc/hima/hima-vendor.mk)
 
 # Overlay
 DEVICE_PACKAGE_OVERLAYS += \

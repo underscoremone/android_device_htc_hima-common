@@ -1,5 +1,6 @@
 #
-# Copyright (C) 2015 The CyanogenMod Project
+# Copyright (C) 2015-2016 The CyanogenMod Project
+# Copyright (C) 2017-2018 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -15,9 +16,11 @@
 
 BOARD_VENDOR := htc
 
-COMMON_PATH := device/htc/hima-common
+DEVICE_PATH := device/htc/hima
 
-TARGET_SPECIFIC_HEADER_PATH := $(COMMON_PATH)/include
+TARGET_SPECIFIC_HEADER_PATH := $(DEVICE_PATH)/include
+
+TARGET_OTA_ASSERT_DEVICE := hima,himauhl,himaul,himawhl,himawl,htc_himauhl,htc_himaul,htc_himawhl,htc_himawl
 
 # Architecture
 TARGET_ARCH := arm64
@@ -73,8 +76,8 @@ USE_CUSTOM_AUDIO_POLICY := 1
 USE_XML_AUDIO_POLICY_CONF := 1
 
 # Bluetooth
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(COMMON_PATH)/bluetooth
-BOARD_CUSTOM_BT_CONFIG := $(COMMON_PATH)/bluetooth/libbt_vndcfg.txt
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth
+BOARD_CUSTOM_BT_CONFIG := $(DEVICE_PATH)/bluetooth/libbt_vndcfg.txt
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
 
@@ -126,16 +129,18 @@ BOARD_CACHEIMAGE_PARTITION_SIZE := 1426063360
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 67108864
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 4697620480
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 25232932864
-TARGET_FS_CONFIG_GEN := $(COMMON_PATH)/config.fs
+TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 
 # HIDL
-DEVICE_MANIFEST_FILE := $(COMMON_PATH)/manifest.xml
-DEVICE_MATRIX_FILE := $(COMMON_PATH)/compatibility_matrix.xml
+DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/manifest.xml
+DEVICE_MATRIX_FILE := $(DEVICE_PATH)/compatibility_matrix.xml
 
 # Init
+TARGET_INIT_VENDOR_LIB := libinit_hima
 TARGET_PLATFORM_DEVICE_BASE := /devices/soc.0/
+TARGET_RECOVERY_DEVICE_MODULES := libinit_hima
 
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
@@ -146,7 +151,7 @@ BOARD_NFC_HAL_SUFFIX := msm8994
 
 # Lineage Hardware
 BOARD_HARDWARE_CLASS += \
-    $(COMMON_PATH)/lineagehw
+    $(DEVICE_PATH)/lineagehw
 
 # Power
 TARGET_HAS_NO_WIFI_STATS := true
@@ -157,7 +162,7 @@ TARGET_USES_INTERACTION_BOOST := true
 BOARD_USES_QCOM_HARDWARE := true
 
 # Recovery
-TARGET_RECOVERY_FSTAB := $(COMMON_PATH)/rootdir/etc/recovery.fstab
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/recovery.fstab
 
 # RIL
 TARGET_RIL_VARIANT := caf
@@ -168,7 +173,7 @@ BOARD_GLOBAL_CFLAGS += -DCOMPAT_SENSORS_M
 # SELinux
 include device/qcom/sepolicy/sepolicy.mk
 include device/qcom/sepolicy/legacy-sepolicy.mk
-BOARD_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy
+BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy
 
 # Shims
 TARGET_LD_SHIM_LIBS := \
@@ -191,4 +196,4 @@ WIFI_DRIVER_FW_PATH_AP      := "/system/etc/firmware/fw_bcm4356_apsta.bin"
 WIFI_DRIVER_FW_PATH_STA     := "/system/etc/firmware/fw_bcm4356.bin"
 
 # inherit from the proprietary version
--include vendor/htc/hima-common/BoardConfigVendor.mk
+-include vendor/htc/hima/BoardConfigVendor.mk
